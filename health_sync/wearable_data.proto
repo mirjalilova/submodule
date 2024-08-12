@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "genproto/health_sync";
+
+package health_sync;
+
+import "common.proto";
+
+service WearableDateService {
+    rpc Create (WearableDate) returns (Void) {}
+    rpc Update() returns (Void) {}
+    rpc Delete() returns (Void) {}
+    rpc Get() returns () {}
+    rpc List() returns () {}
+}
+
+message WearableDate {
+    string user_id = 1;
+    string device_type = 2;
+    string rousume = 3;
+    string date = 4;
+}

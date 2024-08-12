@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "genproto/health_sync";
+
+package health_sync;
+
+import "common.proto";
+
+service RecommendationService {
+    rpc Create (RecommendationCreate) returns (Void) {}
+    rpc Update () returns (Void) {}
+    rpc Delete () returns (Void) {}
+    rpc Get () returns () {}
+    rpc List () returns () {}
+}
+
+message RecommendationCreate {
+    string user_id = 1;
+    string recommendation_type = 2;
+    string description = 3;
+    string recommendated_by = 4;
+}

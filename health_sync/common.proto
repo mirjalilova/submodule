@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "genproto/health_sync";
+
+package health_sync;
+
+message Void {}
+
+message GetById {
+    string Id = 1;
+}
+
+message Filter {
+    int32 limit = 1;
+    int32 offset = 2;
+}
