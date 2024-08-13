@@ -8,15 +8,43 @@ import "common.proto";
 
 service RecommendationService {
     rpc Create (RecommendationCreate) returns (Void) {}
-    rpc Update () returns (Void) {}
-    rpc Delete () returns (Void) {}
-    rpc Get () returns () {}
-    rpc List () returns () {}
+    rpc Update (RecommendationUpdate) returns (Void) {}
+    rpc Delete (GetById) returns (Void) {}
+    rpc Get (GetById) returns (Recommendation) {}
+    rpc List (GetAllRecommendationReq) returns (GetAllRecommendation) {}
 }
 
 message RecommendationCreate {
     string user_id = 1;
     string recommendation_type = 2;
     string description = 3;
-    string recommendated_by = 4;
+    int32  priority = 4;
+    string recommendated_by = 5;
+}
+
+message RecommendationUpdate {
+    string recommendation_type = 1;
+    string description = 2;
+    int32  priority = 3;
+}
+
+message Recommendation {
+    string id = 1;
+    string user_id = 2;
+    string recommendation_type = 3;
+    string description = 4;
+    int32  priority = 5;
+    string recommendated_by = 6;
+}
+
+message GetAllRecommendationReq {
+    string user_id = 1;
+    int32  priority = 2;
+    string recommendated_by = 3;
+    Filter filter = 4;
+}
+
+message GetAllRecommendation {
+    repeated Recommendation recommendations = 1;
+    int32 count = 2;
 }

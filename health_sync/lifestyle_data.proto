@@ -11,43 +11,57 @@ service LifestyleService {
     rpc Update (LifestyleUpdate) returns (Void) {}
     rpc Delete (GetById) returns (Void) {}
     rpc Get (GetById) returns (Lifestyle) {}
-    rpc List(GetById) returns (LifestyleList) {}
+    rpc List(GetAllLifestyleReq) returns (GetAllLifestyleRes) {}
 }
 
 message LifestyleCreate {
     string user_id = 1;
-    string heart_rate = 2;
-    string blood_pressure = 3;
-    string weight = 4;
-    string height = 5;
-    float  temperature = 6;
-    int32  stress_level = 7;
-    float  sleep_duration = 8;
+    string data_type = 2;
+    string data_value = 3;
+    int32  heart_rate = 4;
+    string blood_pressure = 5;
+    float  weight = 6;
+    float  height = 7;
+    float  temperature = 8;
+    int32  stress_level = 9;
+    float  sleep_duration = 10;
+    string recorded_date = 11;
 }
 
 message Lifestyle {
     string id = 1;
     string user_id = 2;
-    string heart_rate = 3;
+    string data_type = 3;
+    string data_value = 4;
+    int32  heart_rate = 5;
+    string blood_pressure = 6;
+    float  weight = 7;
+    float  height = 8;
+    float  temperature = 9;
+    int32  stress_level = 10;
+    float  sleep_duration = 11;
+    string recorded_date = 12;
+}
+
+message LifestyleUpdate {
+    string data_type = 1;
+    string data_value = 2;
+    int32  heart_rate =3;
     string blood_pressure = 4;
-    string weight = 5;
-    string height = 6;
+    float  weight = 5;
+    float  height = 6;
     float  temperature = 7;
     int32  stress_level = 8;
     float  sleep_duration = 9;
 }
 
-message LifestyleUpdate {
-    string heart_rate =1;
-    string blood_pressure = 2;
-    string weight = 3;
-    string height = 4;
-    float  temperature = 5;
-    int32  stress_level = 6;
-    float  sleep_duration = 7;
+message GetAllLifestyleReq {
+    string user_id = 1;
+    string data_type = 2;
+    Filter filter = 3;
 }
 
-message LifestyleList {
+message GetAllLifestyleRes {
     repeated Lifestyle lifestyles = 1;
     int32 count = 2;
 }
