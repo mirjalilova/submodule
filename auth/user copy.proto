@@ -21,7 +21,10 @@ message UserRes{
     string Email = 3;
     string FullName = 4;
     string DateOfBirth = 5;
-    string Role = 6;
+    string Gender = 6;
+    string PhoneNumber = 7;
+    string Country = 8;
+    string Role = 9;
 }
 
 message EditProfileReqBpdy {
@@ -29,6 +32,9 @@ message EditProfileReqBpdy {
     string Email = 2;
     string FullName = 3;
     string DateOfBirth = 4;
+    string Gender = 5;
+    string PhoneNumber = 6;
+    string Country = 7;
 }
 
 message ChangePasswordReq{
