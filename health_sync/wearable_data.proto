@@ -10,8 +10,24 @@ service WearableDataService {
     rpc Create (WearableDataCreate) returns (Void) {}
     rpc Update(WearableDataUpdate) returns (Void) {}
     rpc Delete(GetById) returns (Void) {}
-    rpc Get(GetById) returns (WearableData) {}
+    rpc Get(GetById) returns (WearableDataRes) {}
     rpc List(GetAllWearableDataReq) returns (GetAllWearableDataRes) {}
+}
+
+message WearableData {
+    string id = 1;
+    string user_id = 2;
+    string device_type = 3;
+    int32  step_count = 4;
+    float  calories_burned = 5;
+    float  distance_traveled = 6;
+    int32  heart_rate = 7;
+    float  sleep_duration = 8;
+    string workout_type = 9;
+    string recorded_timestamp = 10;
+    string created_at = 11;
+    string updated_at = 12;
+    int32  deleted_at = 13;
 }
 
 message WearableDataCreate {
@@ -35,9 +51,10 @@ message WearableDataUpdate {
     float  sleep_duration = 6;
     string workout_type = 7;
     string recorded_timestamp = 8;
+    string id = 9;
 }
 
-message WearableData {
+message WearableDataRes {
     string id = 1;
     string user_id = 2;
     string device_type = 3;
@@ -52,17 +69,11 @@ message WearableData {
 
 message GetAllWearableDataReq {
     string user_id = 1;
-    int32  step_count = 2;
-    float  calories_burned = 3;
-    float  distance_traveled = 4;
-    int32  heart_rate = 5;
-    float  sleep_duration = 6;
-    string workout_type = 7;
-    string recorded_timestamp = 8;
-    Filter filter = 9;
+    string recorded_timestamp = 2;
+    Filter filter = 3;
 }
 
 message GetAllWearableDataRes {
-    repeated WearableData wearable_data = 1;
+    repeated WearableDataRes wearable_data = 1;
     int32  count = 2;
 }

@@ -58,7 +58,7 @@ message MedicalRecordRes {
 message GetAllMedicalRecords {
     string user_id = 1;
     string record_type = 2;
-    string redord_date = 3;
+    string record_date = 3;
     string doctor_id = 4;
     Filter filter = 5;
 }

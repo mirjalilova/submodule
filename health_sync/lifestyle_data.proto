@@ -10,8 +10,26 @@ service LifestyleService {
     rpc Create (LifestyleCreate) returns (Void) {}
     rpc Update (LifestyleUpdate) returns (Void) {}
     rpc Delete (GetById) returns (Void) {}
-    rpc Get (GetById) returns (Lifestyle) {}
+    rpc Get (GetById) returns (LifestyleRes) {}
     rpc List(GetAllLifestyleReq) returns (GetAllLifestyleRes) {}
+}
+
+message LifeStyle {
+    string id = 1;
+    string user_id = 2;
+    string data_type = 3;
+    string data_value = 4;
+    int32  heart_rate = 5;
+    string blood_pressure = 6;
+    float  weight = 8;
+    float  height = 9;
+    float  temperature = 10;
+    int32  stress_level = 11;
+    float  sleep_duration = 12;
+    string recorded_date = 13;
+    string created_at = 14;
+    string updated_at = 15;
+    int32  deleted_at = 16;
 }
 
 message LifestyleCreate {
@@ -28,7 +46,7 @@ message LifestyleCreate {
     string recorded_date = 11;
 }
 
-message Lifestyle {
+message LifestyleRes {
     string id = 1;
     string user_id = 2;
     string data_type = 3;
@@ -53,6 +71,7 @@ message LifestyleUpdate {
     float  temperature = 7;
     int32  stress_level = 8;
     float  sleep_duration = 9;
+    string id = 10;
 }
 
 message GetAllLifestyleReq {
@@ -62,6 +81,6 @@ message GetAllLifestyleReq {
 }
 
 message GetAllLifestyleRes {
-    repeated Lifestyle lifestyles = 1;
+    repeated LifestyleRes lifestyles = 1;
     int32 count = 2;
 }

@@ -10,8 +10,20 @@ service RecommendationService {
     rpc Create (RecommendationCreate) returns (Void) {}
     rpc Update (RecommendationUpdate) returns (Void) {}
     rpc Delete (GetById) returns (Void) {}
-    rpc Get (GetById) returns (Recommendation) {}
+    rpc Get (GetById) returns (RecommendationRes) {}
     rpc List (GetAllRecommendationReq) returns (GetAllRecommendation) {}
+}
+
+message Recommendation {
+    string id = 1;
+    string user_id = 2;
+    string recommendation_type = 3;
+    string description = 4;
+    int32  priority = 5;
+    string recommendated_by = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    int32  deleted_at = 9;
 }
 
 message RecommendationCreate {
@@ -26,9 +38,10 @@ message RecommendationUpdate {
     string recommendation_type = 1;
     string description = 2;
     int32  priority = 3;
+    string id = 4;
 }
 
-message Recommendation {
+message RecommendationRes {
     string id = 1;
     string user_id = 2;
     string recommendation_type = 3;
@@ -45,6 +58,6 @@ message GetAllRecommendationReq {
 }
 
 message GetAllRecommendation {
-    repeated Recommendation recommendations = 1;
+    repeated RecommendationRes recommendations = 1;
     int32 count = 2;
 }
