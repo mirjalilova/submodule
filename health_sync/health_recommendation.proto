@@ -41,6 +41,12 @@ message RecommendationUpdate {
     string id = 4;
 }
 
+message RecommendationUpdateBody {
+    string description = 1;
+    int32  priority = 2;
+    string recommendation_type = 3;
+}
+
 message RecommendationRes {
     string id = 1;
     string user_id = 2;

@@ -74,6 +74,18 @@ message LifestyleUpdate {
     string id = 10;
 }
 
+message LifestyleUpdateBody {
+    string data_type = 1;
+    string data_value = 2;
+    int32  heart_rate =3;
+    string blood_pressure = 4;
+    float  weight = 5;
+    float  height = 6;
+    float  temperature = 7;
+    int32  stress_level = 8;
+    float  sleep_duration = 9;
+}
+
 message GetAllLifestyleReq {
     string user_id = 1;
     string data_type = 2;
