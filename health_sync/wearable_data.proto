@@ -12,6 +12,7 @@ service WearableDataService {
     rpc Delete(GetById) returns (Void) {}
     rpc Get(GetById) returns (WearableDataRes) {}
     rpc List(GetAllWearableDataReq) returns (GetAllWearableDataRes) {}
+    rpc GetRealTimeMonitoringData(GetById) returns (WearableDataRes) {}
 }
 
 message WearableData {
@@ -24,10 +25,11 @@ message WearableData {
     int32  heart_rate = 7;
     float  sleep_duration = 8;
     string workout_type = 9;
-    string recorded_timestamp = 10;
-    string created_at = 11;
-    string updated_at = 12;
-    int32  deleted_at = 13;
+    float  temperature = 10;
+    string recorded_timestamp = 11;
+    string created_at = 12;
+    string updated_at = 13;
+    int32  deleted_at = 14;
 }
 
 message WearableDataCreate {
@@ -39,7 +41,8 @@ message WearableDataCreate {
     int32  heart_rate = 6;
     float  sleep_duration = 7;
     string workout_type = 8;
-    string recorded_timestamp = 9;
+    float  temperature = 9;
+    string recorded_timestamp = 10;
 }
 
 message WearableDataUpdate {
@@ -51,7 +54,8 @@ message WearableDataUpdate {
     float  sleep_duration = 6;
     string workout_type = 7;
     string recorded_timestamp = 8;
-    string id = 9;
+    float  temperature = 9;
+    string id = 10;
 }
 
 message WearableDataRes {
@@ -64,7 +68,8 @@ message WearableDataRes {
     int32  heart_rate = 7;
     float  sleep_duration = 8;
     string workout_type = 9;
-    string recorded_timestamp = 10;
+    float  temperature = 10;
+    string recorded_timestamp = 11;
 }
 
 message GetAllWearableDataReq {

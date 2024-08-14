@@ -12,6 +12,7 @@ service LifestyleService {
     rpc Delete (GetById) returns (Void) {}
     rpc Get (GetById) returns (LifestyleRes) {}
     rpc List(GetAllLifestyleReq) returns (GetAllLifestyleRes) {}
+    rpc GetWeeklySummary(WeeklySummaryReq) returns (WeeklySummary) {}
 }
 
 message LifeStyle {
@@ -26,10 +27,11 @@ message LifeStyle {
     float  temperature = 10;
     int32  stress_level = 11;
     float  sleep_duration = 12;
-    string recorded_date = 13;
-    string created_at = 14;
-    string updated_at = 15;
-    int32  deleted_at = 16;
+    int32  step_count = 13;
+    string recorded_date = 14;
+    string created_at = 15;
+    string updated_at = 16;
+    int32  deleted_at = 17;
 }
 
 message LifestyleCreate {
@@ -41,8 +43,8 @@ message LifestyleCreate {
     float  weight = 6;
     float  height = 7;
     float  temperature = 8;
-    int32  stress_level = 9;
-    float  sleep_duration = 10;
+    float  sleep_duration = 9;
+    int32  step_count = 10;
     string recorded_date = 11;
 }
 
@@ -58,7 +60,8 @@ message LifestyleRes {
     float  temperature = 9;
     int32  stress_level = 10;
     float  sleep_duration = 11;
-    string recorded_date = 12;
+    int32  step_count = 12;
+    string recorded_date = 13;
 }
 
 message LifestyleUpdate {
@@ -71,16 +74,33 @@ message LifestyleUpdate {
     float  temperature = 7;
     int32  stress_level = 8;
     float  sleep_duration = 9;
-    string id = 10;
+    int32  step_count = 10;
+    string id = 11;
 }
 
 message GetAllLifestyleReq {
     string user_id = 1;
     string data_type = 2;
-    Filter filter = 3;
+    int32  step_count = 3;
+    Filter filter = 4;
 }
 
 message GetAllLifestyleRes {
     repeated LifestyleRes lifestyles = 1;
     int32 count = 2;
+}
+
+message WeeklySummaryReq {
+    string user_id = 1;
+    string start_date = 2;
+    string end_date = 3;
+}
+
+message WeeklySummary {
+    int32 heart_rate = 1;
+    repeated int32 heart_rates = 2;
+    float sleep_duration = 3;
+    repeated float sleep_durations = 4;
+    float temperature = 5;
+    repeated float temperatures = 6;
 }
