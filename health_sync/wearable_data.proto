@@ -58,6 +58,17 @@ message WearableDataUpdate {
     string id = 10;
 }
 
+message WearableDataUpdateBody {
+    string device_type = 1;
+    int32  step_count = 2;
+    float  calories_burned = 3;
+    float  distance_traveled = 4;
+    int32  heart_rate = 5;
+    float  sleep_duration = 6;
+    string workout_type = 7;
+    string recorded_timestamp = 8; 
+}
+
 message WearableDataRes {
     string id = 1;
     string user_id = 2;

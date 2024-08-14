@@ -45,6 +45,13 @@ message MedicalRecordUpdate {
     string attachments = 6;
 }
 
+message MedicalRecordUpdateBody {
+    string record_type = 1;
+    string record_date = 2;
+    string description = 3;
+    string attachments = 4;
+}
+
 message MedicalRecordRes {
     string id = 1;
     string user_id = 2;
