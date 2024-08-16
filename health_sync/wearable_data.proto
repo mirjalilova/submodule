@@ -42,7 +42,6 @@ message WearableDataCreate {
     float  sleep_duration = 7;
     string workout_type = 8;
     float  temperature = 9;
-    string recorded_timestamp = 10;
 }
 
 message WearableDataUpdate {
