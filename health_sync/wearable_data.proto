@@ -26,10 +26,9 @@ message WearableData {
     float  sleep_duration = 8;
     string workout_type = 9;
     float  temperature = 10;
-    string recorded_timestamp = 11;
-    string created_at = 12;
-    string updated_at = 13;
-    int32  deleted_at = 14;
+    string created_at = 11;
+    string updated_at = 12;
+    int32  deleted_at = 13;
 }
 
 message WearableDataCreate {
