@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "genproto/health_sync";
+
+package health_sync;
+
+import "common.proto";
+
+service NotificationService {
+    rpc Create (Notification) returns (Void) {}
+    rpc Get (GetById) returns (Notification) {}
+    rpc List (GetAllNotificationReq) returns (GetAllNotificationRes) {}
+}
+
+message Notification {
+    string id = 1;
+    string receiver = 2;
+    string message = 3;
+    string created_at = 4;
+}
+
+message GetAllNotificationReq {
+    string receiver = 1;
+    Filter filter = 2;
+}
+
+message GetAllNotificationRes {
+    repeated Notification Notifications = 1;
+    int32 count = 2;
+}
